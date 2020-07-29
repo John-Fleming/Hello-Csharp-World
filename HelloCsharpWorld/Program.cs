@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 
 namespace HelloCsharpWorld
 {
@@ -6,10 +7,13 @@ namespace HelloCsharpWorld
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Enter your name: ");
+            var username = Console.ReadLine();
+
             var southern = "Howdy Y'all!!";
             var spanish = "Hola Amigos!!";
             var japanese = "Konnichiwa!!";
-            var greeting = "Pick a Greeting: Southern, Spanish, or Japanese";
+            var greeting = $"Hi {username}! Pick a Greeting: Southern, Spanish, or Japanese";
 
             Console.WriteLine(greeting);
             var userGreeting = Console.ReadLine();
@@ -38,6 +42,14 @@ namespace HelloCsharpWorld
                     Console.WriteLine(animal);
                 }
             }
+
+            var r = new Random();
+            var randomAnimal = animals[r.Next(0, animals.Length)];
+
+            Console.WriteLine("What's your favorite color?");
+            var favColor = Console.ReadLine();
+
+            Console.WriteLine($"Would you like to have a {favColor} {randomAnimal}?");
         }
     }
 }
